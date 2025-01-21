@@ -1,4 +1,14 @@
 # How to use and deploy
+---
+## Before you start
+Make sure you create a new project in [Supabase](https://supabase.com/).
+Make sure you implement these tables:
+![Image failed to load](DB.png)
+
+Also make sure you create these policies:
+![Image failed to load](Policies.png)
+
+---
 ## Step 0
 ```bash
 git clone https://github.com/bomba-cat/Contacts.git
@@ -30,4 +40,4 @@ npm run dev
 commands
 
 ## Step 3
-Enjoy
+Now open up your shiny new `http://localhost:5173`

@@ -2,10 +2,9 @@
 ---
 ## Before you start
 Make sure you create a new project in [Supabase](https://supabase.com/).
-Make sure you implement these tables:
-![Image failed to load](DB.png)
 
-Also make sure you create these policies:
+Make sure you implement these tables and these Policiest:
+![Image failed to load](DB.png)
 ![Image failed to load](Policies.png)
 
 ---

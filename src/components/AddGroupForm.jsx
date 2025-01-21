@@ -4,7 +4,6 @@ import { supabase } from '../supabaseClient';
 const AddGroupForm = ({ session }) => {
   const [groupName, setGroupName] = useState('');
   const [contacts, setContacts] = useState([]);
-  const [selectedContactIds, setSelectedContactIds] = useState([]);
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -26,19 +25,9 @@ const AddGroupForm = ({ session }) => {
 
     if (error) console.error(error);
     else {
-      const groupId = data[0].id;
-      await Promise.all(
-        selectedContactIds.map((contactId) =>
-          supabase
-            .from('contacts')
-            .update({ group_id: groupId })
-            .eq('id', contactId)
-        )
-      );
     }
 
     setGroupName('');
-    setSelectedContactIds([]);
   };
 
   const handleContactSelect = (id) => {
@@ -58,19 +47,6 @@ const AddGroupForm = ({ session }) => {
         onChange={(e) => setGroupName(e.target.value)}
         required
       />
-      <div>
-        <h3>Select Contacts</h3>
-        {contacts.map((contact) => (
-          <label key={contact.id}>
-            <input
-              type="checkbox"
-              checked={selectedContactIds.includes(contact.id)}
-              onChange={() => handleContactSelect(contact.id)}
-            />
-            {contact.name}
-          </label>
-        ))}
-      </div>
       <button type="submit">Create Group</button>
     </form>
   );

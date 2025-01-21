@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
-import View from './View';
 
 const GroupList = ({ session }) => {
   const [groups, setGroups] = useState([]);
@@ -99,7 +98,6 @@ const GroupList = ({ session }) => {
             {group.contacts.map((contact) => (
               <li key={contact.id}>
                 {contact.name} - {contact.email} - {contact.phone}{' '}
-                <button onClick={() => handleUserClick(contact)}>View User</button>{' '}
                 <button onClick={() => handleUpdateUser(contact)}>Edit User</button>
               </li>
             ))}
@@ -129,9 +127,6 @@ const GroupList = ({ session }) => {
           )}
         </div>
       ))}
-      {selectedUser && (
-        <View user={selectedUser} closeView={() => setSelectedUser(null)} onUpdateUser={handleUpdateUser} />
-      )}
     </div>
   );
 };

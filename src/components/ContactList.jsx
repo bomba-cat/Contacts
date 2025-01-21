@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
-import View from './View';
 
 const ContactList = ({ session }) => {
   const [contacts, setContacts] = useState([]);
@@ -10,7 +9,6 @@ const ContactList = ({ session }) => {
   const [contactName, setContactName] = useState('');
   const [contactEmail, setContactEmail] = useState('');
   const [contactPhone, setContactPhone] = useState('');
-  const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -35,10 +33,6 @@ const ContactList = ({ session }) => {
     };
     fetchGroups();
   }, [session]);
-
-  const handleContactClick = (contact) => {
-    setSelectedUser(contact);
-  };
 
   const handleEditContact = (contact) => {
     setIsEditingContact(true);
@@ -81,7 +75,6 @@ const ContactList = ({ session }) => {
         {contacts.map((contact) => (
           <li key={contact.id}>
             {contact.name} - {contact.email} - {contact.phone}{' '}
-            <button onClick={() => handleContactClick(contact)}>View User</button>{' '}
             <button onClick={() => handleEditContact(contact)}>Edit User</button>{' '}
             <button onClick={() => handleDeleteContact(contact.id)}>Delete User</button>
           </li>
@@ -120,9 +113,6 @@ const ContactList = ({ session }) => {
         </div>
       )}
 
-      {selectedUser && (
-        <View user={selectedUser} closeView={() => setSelectedUser(null)} />
-      )}
     </div>
   );
 };

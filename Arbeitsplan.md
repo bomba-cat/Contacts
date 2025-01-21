@@ -1,5 +1,5 @@
 | Auftrag | Zeitaufwand |
-| --------------------- |
+| ------- | ----------- |
 | Git Actions | 15 minuten |
 | Auth einsetzen | 20 minuten |
 | CRUD OPs | 15 minuten |
@@ -11,5 +11,5 @@
 ---
 
 | Datum | Zu erledigen |
-| -------------------- |
+| ----- | ------------ |
 | 21.1.2025 | Git Actions, Auth einsetzen, CRUD OPs, Arch Doku., Deploy Doku., React Frontend, SUpabase datenbank |
